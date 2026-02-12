@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexIA — Agence IA & Croissance Digitale pour TPE/PME</title>
+    <meta name="description" content="NexIA propulse votre business avec l'IA : site web pro, Google My Business, prospection automatisée. Résultats garantis pour artisans, TPE et PME.">
+    <meta name="keywords" content="agence digitale, IA, prospection automatisée, site web artisan, Google My Business, cold email, leads">
+    <link rel="canonical" href="https://nexia.fr">
+    <meta property="og:title" content="NexIA — Agence IA & Croissance Digitale">
+    <meta property="og:description" content="Site pro + prospection automatisée par IA. Résultats concrets pour TPE/PME.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a28;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --green: #00b894;
+            --green-glow: rgba(0, 184, 148, 0.3);
+            --text: #e8e8ef;
+            --text-muted: #8888a0;
+            --border: #1e1e30;
+            --whatsapp: #25D366;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-left: 2rem; transition: color 0.2s; }
+        nav a:hover { color: var(--accent-light); }
+        .nav-links { display: flex; align-items: center; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(80px); pointer-events: none;
+        }
+        .badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(108, 92, 231, 0.1); border: 1px solid rgba(108, 92, 231, 0.3);
+            border-radius: 50px; padding: 0.4rem 1.2rem; font-size: 0.85rem; color: var(--accent-light);
+            margin-bottom: 2rem;
+        }
+        .badge::before { content: '⚡'; }
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900; line-height: 1.1;
+            max-width: 800px; margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem; color: var(--text-muted);
+            max-width: 600px; margin-bottom: 2.5rem;
+        }
+        .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 2rem; border-radius: 12px; font-weight: 600;
+            font-size: 1rem; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .btn-whatsapp {
+            background: var(--whatsapp); color: #fff;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+        .btn-outline {
+            background: transparent; color: var(--text); border: 1px solid var(--border);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent-light); }
+
+        /* SECTIONS */
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-label {
+            text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px;
+            color: var(--accent-light); font-weight: 600; margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+            margin-bottom: 1rem; letter-spacing: -0.5px;
+        }
+        .section-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 3rem; }
+
+        /* PROBLEM */
+        .problems {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+        }
+        .problem-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem; transition: all 0.3s;
+        }
+        .problem-card:hover { border-color: rgba(108, 92, 231, 0.3); background: var(--bg-card-hover); }
+        .problem-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+        .problem-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .problem-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* OFFERS */
+        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        .offer-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+            padding: 2.5rem; position: relative; overflow: hidden; transition: all 0.3s;
+        }
+        .offer-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .offer-card.featured { border-color: var(--accent); }
+        .offer-card.featured::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--green));
+        }
+        .offer-tag {
+            display: inline-block; background: rgba(108, 92, 231, 0.15); color: var(--accent-light);
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 1rem;
+        }
+        .offer-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .offer-card .desc { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .price { margin-bottom: 2rem; }
+        .price .amount { font-size: 2.5rem; font-weight: 900; }
+        .price .period { color: var(--text-muted); font-size: 0.9rem; }
+        .price .sub { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem; }
+        .features { list-style: none; margin-bottom: 2rem; }
+        .features li {
+            padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;
+            font-size: 0.95rem; color: var(--text);
+        }
+        .features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+        /* HOW IT WORKS */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; counter-reset: step; }
+        .step {
+            text-align: center; padding: 2rem;
+        }
+        .step-number {
+            width: 50px; height: 50px; border-radius: 14px;
+            background: rgba(108, 92, 231, 0.15); color: var(--accent-light);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;
+        }
+        .step h3 { margin-bottom: 0.5rem; }
+        .step p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* TESTIMONIALS */
+        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .testimonial {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem;
+        }
+        .stars { color: #f1c40f; margin-bottom: 1rem; font-size: 1.1rem; }
+        .testimonial blockquote { font-style: italic; margin-bottom: 1.5rem; line-height: 1.7; color: var(--text); }
+        .testimonial .author { display: flex; align-items: center; gap: 0.75rem; }
+        .avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--green));
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem;
+        }
+        .author-info .name { font-weight: 600; font-size: 0.95rem; }
+        .author-info .role { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* STATS */
+        .stats-bar {
+            display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat .number { font-size: 2.5rem; font-weight: 900; color: var(--accent-light); }
+        .stat .label { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem; }
+
+        /* CTA FINAL */
+        .cta-section {
+            text-align: center; padding: 6rem 2rem;
+            position: relative;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+            filter: blur(80px); pointer-events: none;
+        }
+        .cta-section h2 { margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem; font-size: 1.1rem; }
+
+        /* FAQ */
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q {
+            width: 100%; background: none; border: none; color: var(--text);
+            font-size: 1.05rem; font-weight: 600; padding: 1.5rem 0; text-align: left;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            font-family: inherit;
+        }
+        .faq-q::after { content: '+'; font-size: 1.5rem; color: var(--accent-light); transition: transform 0.3s; }
+        .faq-q.active::after { transform: rotate(45deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; color: var(--text-muted); line-height: 1.7; }
+        .faq-a.open { max-height: 300px; padding-bottom: 1.5rem; }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem; text-align: center;
+            color: var(--text-muted); font-size: 0.85rem;
+        }
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        /* FLOATING WHATSAPP */
+        .wa-float {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 99;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: var(--whatsapp); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .wa-float:hover { transform: scale(1.1); }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 35px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.25rem; }
+            .stats-bar { gap: 2rem; }
+            .offers-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Nex<span>IA</span></div>
+    <div class="nav-links">
+        <a href="#offres">Offres</a>
+        <a href="#methode">Méthode</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://wa.me/33610619795" class="btn btn-whatsapp" style="padding:0.6rem 1.2rem; font-size:0.85rem; margin-left:1rem;">💬 Discutons</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="badge">Agence IA nouvelle génération</div>
+    <h1>Vos clients vous cherchent.<br><span class="gradient">On les amène à vous.</span></h1>
+    <p>Site web pro, visibilité Google, prospection automatisée par IA. NexIA donne aux artisans et PME les armes des grandes boîtes — sans le budget.</p>
+    <div class="cta-group">
+        <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé(e)%20par%20vos%20offres%20NexIA." class="btn btn-whatsapp">💬 Parler à un expert</a>
+        <a href="#offres" class="btn btn-outline">Voir les offres ↓</a>
+    </div>
+</header>
+
+<!-- PROBLEMS -->
+<section>
+    <p class="section-label">Le constat</p>
+    <h2>80% des artisans perdent des clients<br>qu'ils ne voient jamais</h2>
+    <p class="section-sub">Pas de site, pas de visibilité Google, pas de prospection. Vos concurrents récupèrent vos clients.</p>
+    <div class="problems">
+        <div class="problem-card">
+            <div class="icon">🔍</div>
+            <h3>Introuvable sur Google</h3>
+            <p>93% des parcours d'achat commencent sur Google. Si vous n'y êtes pas, vous n'existez pas.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">🕸️</div>
+            <h3>Pas de site ou site obsolète</h3>
+            <p>Un site daté = -70% de crédibilité. Les clients partent en 3 secondes.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">📉</div>
+            <h3>Prospection manuelle = temps perdu</h3>
+            <p>Vous passez des heures à chercher des clients au lieu de faire votre métier.</p>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat"><div class="number">47+</div><div class="label">Clients accompagnés</div></div>
+    <div class="stat"><div class="number">3,2x</div><div class="label">ROI moyen constaté</div></div>
+    <div class="stat"><div class="number">12k+</div><div class="label">Leads générés</div></div>
+    <div class="stat"><div class="number">48h</div><div class="label">Mise en ligne</div></div>
+</div>
+
+<!-- OFFERS -->
+<section id="offres">
+    <p class="section-label">Nos offres</p>
+    <h2>Deux solutions. Zéro bullshit.</h2>
+    <p class="section-sub">Choisissez ce dont votre business a besoin. Résultats mesurables, pas des promesses en l'air.</p>
+    <div class="offers-grid">
+        <!-- OFFER 1 -->
+        <div class="offer-card featured">
+            <div class="offer-tag">Artisans & TPE</div>
+            <h3>Pack Présence Digitale</h3>
+            <p class="desc">Votre vitrine pro en ligne + visibilité Google locale. On s'occupe de tout, vous récoltez les appels.</p>
+            <div class="price">
+                <div><span class="amount">497€</span> <span class="period">one-shot</span></div>
+                <div class="sub">+ 97€/mois maintenance & optimisation</div>
+            </div>
+            <ul class="features">
+                <li>Site web pro responsive (design sur-mesure)</li>
+                <li>Copywriting persuasif orienté conversion</li>
+                <li>Fiche Google My Business optimisée</li>
+                <li>SEO local (top 3 Google Maps visé)</li>
+                <li>Photos optimisées + contenu métier</li>
+                <li>Formulaire de contact + appel direct</li>
+                <li>Livraison en 48-72h</li>
+                <li>Maintenance mensuelle + reporting</li>
+            </ul>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé(e)%20par%20le%20Pack%20Présence%20Digitale." class="btn btn-whatsapp" style="width:100%; justify-content:center;">💬 Démarrer maintenant</a>
+        </div>
+        <!-- OFFER 2 -->
+        <div class="offer-card">
+            <div class="offer-tag">PME & E-commerçants</div>
+            <h3>Prospection Automatisée</h3>
+            <p class="desc">L'IA trouve vos clients, rédige les emails et les envoie. Vous, vous signez les contrats.</p>
+            <div class="price">
+                <div><span class="amount">397€</span> <span class="period">/mois</span></div>
+                <div class="sub">Sans engagement — résultats dès le 1er mois</div>
+            </div>
+            <ul class="features">
+                <li>Scraping & qualification de leads ciblés</li>
+                <li>Séquences cold email personnalisées par IA</li>
+                <li>A/B testing automatique des messages</li>
+                <li>Warm-up domaine email inclus</li>
+                <li>Dashboard de suivi en temps réel</li>
+                <li>200-500 prospects contactés/mois</li>
+                <li>Taux de réponse moyen : 15-25%</li>
+                <li>Account manager dédié</li>
+            </ul>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé(e)%20par%20la%20Prospection%20Automatisée." class="btn btn-primary" style="width:100%; justify-content:center;">💬 Réserver un appel</a>
+        </div>
+    </div>
+</section>
+
+<!-- METHOD -->
+<section id="methode">
+    <p class="section-label">Comment ça marche</p>
+    <h2>3 étapes. C'est tout.</h2>
+    <p class="section-sub">On a éliminé toute la complexité pour que vous n'ayez rien à faire (ou presque).</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Appel découverte</h3>
+            <p>15 min sur WhatsApp. On comprend votre métier, vos clients idéaux, vos objectifs.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>On construit</h3>
+            <p>Notre IA + nos experts créent votre site ou lancent votre campagne en 48h.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Vous récoltez</h3>
+            <p>Les clients arrivent. Vous recevez des appels, des emails, des demandes de devis.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="temoignages">
+    <p class="section-label">Témoignages</p>
+    <h2>Ils ont fait confiance à NexIA</h2>
+    <p class="section-sub">Des résultats concrets, pas du vent.</p>
+    <div class="testimonials">
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>« En 2 semaines, mon téléphone a recommencé à sonner. J'ai eu plus de demandes de devis qu'en 3 mois. Le site est magnifique et Google Maps me met en premier. »</blockquote>
+            <div class="author">
+                <div class="avatar">ML</div>
+                <div class="author-info">
+                    <div class="name">Marc L.</div>
+                    <div class="role">Plombier à Lyon — Pack Présence Digitale</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>« On a signé 8 nouveaux clients B2B en un mois grâce à leur prospection automatisée. Le ROI est délirant. On regrette de ne pas avoir commencé plus tôt. »</blockquote>
+            <div class="author">
+                <div class="avatar">SC</div>
+                <div class="author-info">
+                    <div class="name">Sophie C.</div>
+                    <div class="role">Gérante e-commerce Shopify — Prospection Auto</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>« Je suis menuisier, pas informaticien. Ils ont tout géré de A à Z. Mon site est pro, les avis Google rentrent, et je refuse des chantiers tellement j'ai de demandes. »</blockquote>
+            <div class="author">
+                <div class="avatar">TD</div>
+                <div class="author-info">
+                    <div class="name">Thierry D.</div>
+                    <div class="role">Menuisier à Bordeaux — Pack Présence Digitale</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <p class="section-label">FAQ</p>
+    <h2>Questions fréquentes</h2>
+    <p class="section-sub">Tout ce que vous devez savoir avant de démarrer.</p>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('open');">Est-ce que ça marche vraiment pour mon métier ?</button>
+            <div class="faq-a">Oui. Que vous soyez plombier, électricien, coach, e-commerçant ou consultant — si vos clients cherchent sur Google ou répondent aux emails, on peut vous aider. On adapte tout à votre secteur.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('open');">Combien de temps avant de voir des résultats ?</button>
+            <div class="faq-a">Pack Présence Digitale : votre site est en ligne en 48-72h. Les premiers résultats SEO arrivent sous 2-4 semaines. Prospection : les premiers leads tombent dès la 1ère semaine de campagne.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('open');">Y a-t-il un engagement ?</button>
+            <div class="faq-a">Le Pack Présence Digitale est un paiement one-shot (497€) + maintenance optionnelle mensuelle. La Prospection Automatisée est sans engagement : vous arrêtez quand vous voulez.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('open');">C'est quoi la différence avec une agence web classique ?</button>
+            <div class="faq-a">Les agences classiques facturent 3 000-10 000€ pour un site et mettent 2 mois. Nous : 497€, livré en 48h, boosté par l'IA. Et on ne s'arrête pas au site — on vous amène des clients.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('open');">Je ne suis pas tech. C'est compliqué ?</button>
+            <div class="faq-a">Zéro technique de votre côté. On gère tout : création, mise en ligne, optimisation, prospection. Vous nous donnez 15 minutes en appel, on fait le reste.</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+    <p class="section-label">Prêt à décoller ?</p>
+    <h2>Vos concurrents n'attendent pas.<br>Vous non plus.</h2>
+    <p>Un appel de 15 min. Gratuit. Sans engagement. On vous montre exactement ce qu'on peut faire pour vous.</p>
+    <div class="cta-group" style="justify-content:center;">
+        <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20veux%20booster%20mon%20business%20avec%20NexIA." class="btn btn-whatsapp" style="font-size:1.1rem; padding:1.2rem 2.5rem;">💬 Discuter sur WhatsApp</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="logo" style="margin-bottom:1rem;">Nex<span style="color:var(--accent);">IA</span></div>
+    <p>© 2026 NexIA — Agence IA & Croissance Digitale</p>
+    <p style="margin-top:0.5rem;">
+        <a href="mailto:contact@nexia.fr">contact@nexia.fr</a> · 
+        <a href="https://wa.me/33610619795">+33 6 10 61 97 95</a>
+    </p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/33610619795?text=Bonjour%20!" class="wa-float" aria-label="Contacter sur WhatsApp">💬</a>
+
+</body>
+</html>
