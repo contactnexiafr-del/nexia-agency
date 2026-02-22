@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Tavola Rossa | Restaurant Pizzeria Paris 11 — Pizza au feu de bois, Pâtes fraîches</title>
+<meta name="description" content="Restaurant pizzeria italien authentique à Paris 11ème. Pizza au feu de bois, pâtes fraîches, cuisine maison. Réservez votre table en ligne ou par téléphone.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="La Tavola Rossa — Pizzeria & Restaurant Italien Paris 11">
+<meta property="og:description" content="Cuisine italienne authentique au cœur de Paris. Pizzas au feu de bois, pâtes fraîches, desserts maison.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Tavola Rossa",
+  "servesCuisine": "Italian",
+  "telephone": "+33143572890",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "42 Rue de la Roquette",
+    "addressLocality": "Paris",
+    "postalCode": "75011",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "12:00", "closes": "14:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "19:00", "closes": "23:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "15:00"}
+  ],
+  "priceRange": "€€",
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "387"}
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#b22222;--red-light:#d4453a;--red-dark:#8b1a1a;
+  --cream:#faf3e8;--cream-dark:#f0e4ce;--cream-light:#fdf8f0;
+  --wood:#6b4226;--wood-light:#8b6340;--wood-dark:#4a2c17;
+  --charcoal:#2c2420;--charcoal-light:#3d332d;
+  --white:#ffffff;--gold:#d4a853;
+  --text-dark:#2c2420;--text-mid:#6b5d52;--text-light:#9a8b7d;
+  --radius:10px;
+  --shadow:0 4px 20px rgba(44,36,32,.12);
+  --shadow-lg:0 12px 40px rgba(44,36,32,.2);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Lato',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);color:var(--text-dark);line-height:1.6;background:var(--cream);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+.nav.scrolled{background:rgba(250,243,232,.97);backdrop-filter:blur(12px);padding:.7rem 2rem;box-shadow:0 2px 20px rgba(44,36,32,.1)}
+.nav-brand{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--red)}
+.nav-brand span{font-weight:400;font-style:italic;color:var(--wood);font-size:.8em}
+.nav-links{display:flex;gap:.25rem;align-items:center}
+.nav-links a{color:var(--white);padding:.5rem .85rem;border-radius:6px;font-size:.8rem;font-weight:600;transition:.25s;letter-spacing:.05em;text-transform:uppercase;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.nav.scrolled .nav-links a{color:var(--text-dark);text-shadow:none}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:.55rem 1.25rem!important;border-radius:6px;text-shadow:none!important}
+.nav-cta:hover{background:var(--red-light)!important;color:var(--white)!important}
+.menu-toggle{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:.5rem}
+.nav.scrolled .menu-toggle{color:var(--red)}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:1.5rem;gap:.25rem;box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}
+  .nav-links a{color:var(--text-dark)!important;text-shadow:none!important}
+  .menu-toggle{display:block}
+  .nav{padding:.8rem 1.25rem}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(44,36,32,.45) 0%,rgba(44,36,32,.7) 100%);z-index:1}
+.hero-inner{text-align:center;position:relative;z-index:2;padding:6rem 1.5rem 4rem;max-width:800px}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.hero-tag::before,.hero-tag::after{content:'';width:30px;height:1px;background:var(--gold)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;color:var(--white)}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero p{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,255,255,.85);margin-bottom:2.5rem;max-width:520px;margin-inline:auto;font-weight:300;line-height:1.8}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:6px;font-weight:600;font-size:.85rem;transition:.3s;cursor:pointer;border:none;font-family:var(--font-body);letter-spacing:.05em;text-transform:uppercase}
+.btn-red{background:var(--red);color:var(--white);box-shadow:0 4px 20px rgba(178,34,34,.35)}
+.btn-red:hover{background:var(--red-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(178,34,34,.45)}
+.btn-outline-light{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4)}
+.btn-outline-light:hover{border-color:var(--gold);color:var(--gold)}
+.btn-outline{background:transparent;color:var(--red);border:1.5px solid var(--red)}
+.btn-outline:hover{background:var(--red);color:var(--white)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gold);opacity:.6;z-index:2;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+/* WAVE DIVIDER */
+.wave-divider{background:var(--cream);margin-top:-2px}
+.wave-divider svg{display:block;width:100%}
+
+/* SECTIONS */
+section{padding:5rem 1.5rem}
+.section-header{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.section-header h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.75rem;color:var(--charcoal)}
+.section-header h2 em{font-style:italic;color:var(--red);font-weight:400}
+.section-label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem}
+.section-header p{color:var(--text-mid);font-size:1rem;font-weight:300}
+.container{max-width:1100px;margin:0 auto}
+
+/* INTRO */
+.intro{background:var(--cream);padding-bottom:3rem}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:768px){.intro-grid{grid-template-columns:1fr}}
+.intro-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.intro-img img{width:100%;height:400px;object-fit:cover}
+.intro-img::after{content:'';position:absolute;inset:0;border:3px solid var(--red);border-radius:var(--radius);opacity:.15}
+.intro-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:1rem;color:var(--charcoal)}
+.intro-text h2 em{color:var(--red);font-style:italic;font-weight:400}
+.intro-text p{color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:1rem}
+.intro-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:var(--white);padding:.5rem 1.25rem;border-radius:50px;font-size:.8rem;font-weight:600;margin-top:.5rem}
+
+/* MENU */
+.menu-section{background:var(--charcoal);color:var(--cream)}
+.menu-section .section-header h2{color:var(--cream)}
+.menu-section .section-header p{color:var(--text-light)}
+.menu-section .section-label{color:var(--gold)}
+.menu-tabs{display:flex;justify-content:center;gap:.5rem;margin-bottom:3rem;flex-wrap:wrap}
+.menu-tab{background:transparent;border:1.5px solid rgba(250,243,232,.2);color:var(--cream);padding:.65rem 1.5rem;border-radius:50px;cursor:pointer;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:.3s}
+.menu-tab:hover,.menu-tab.active{background:var(--red);border-color:var(--red);color:var(--white)}
+.menu-category{display:none}
+.menu-category.active{display:block}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 1.25rem;background:rgba(250,243,232,.06);border-radius:var(--radius);border:1px solid rgba(250,243,232,.08);transition:.3s}
+.menu-item:hover{background:rgba(250,243,232,.1);border-color:rgba(212,168,83,.2)}
+.menu-item-info h4{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:.25rem}
+.menu-item-info p{font-size:.8rem;color:var(--text-light);font-weight:300}
+.menu-price{font-family:var(--font-display);font-size:1.1rem;color:var(--gold);font-weight:700;white-space:nowrap;margin-left:1rem}
+.menu-popular{display:inline-block;background:var(--red);color:var(--white);font-size:.6rem;padding:.15rem .5rem;border-radius:50px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-left:.5rem;vertical-align:middle}
+
+/* GALERIE */
+.galerie{background:var(--cream)}
+.galerie-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:768px){.galerie-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.galerie-grid{grid-template-columns:1fr}}
+.galerie-item{aspect-ratio:1;border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer}
+.galerie-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.galerie-item:hover img{transform:scale(1.08)}
+.galerie-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(44,36,32,.5) 0%,transparent 50%);opacity:0;transition:.4s}
+.galerie-item:hover::after{opacity:1}
+
+/* AVIS */
+.avis{background:var(--cream-light)}
+.avis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.avis-card{background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);position:relative;border-left:4px solid var(--red)}
+.avis-card::before{content:'❝';position:absolute;top:.75rem;right:1.25rem;font-size:3rem;color:var(--red);opacity:.1;font-family:serif;line-height:1}
+.avis-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:.75rem}
+.avis-text{color:var(--text-mid);font-size:.92rem;font-style:italic;line-height:1.8;margin-bottom:1.25rem;font-weight:300}
+.avis-author{display:flex;align-items:center;gap:.75rem}
+.avis-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.avis-name{font-weight:700;font-size:.85rem;color:var(--charcoal)}
+.avis-date{font-size:.75rem;color:var(--text-light)}
+
+/* HORAIRES */
+.horaires{background:var(--cream)}
+.horaires-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+@media(max-width:768px){.horaires-content{grid-template-columns:1fr}}
+.horaires-card{background:var(--white);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);border-top:4px solid var(--red)}
+.horaires-card h3{font-family:var(--font-display);font-size:1.3rem;color:var(--charcoal);margin-bottom:1.5rem;text-align:center}
+.horaire-row{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px dashed rgba(107,66,38,.12)}
+.horaire-row:last-child{border:none}
+.horaire-day{font-weight:600;font-size:.9rem;color:var(--charcoal)}
+.horaire-time{font-size:.9rem;color:var(--text-mid);font-weight:400}
+.horaire-closed{color:var(--red);font-weight:600}
+.horaires-info{display:flex;flex-direction:column;gap:1.5rem}
+.info-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start}
+.info-icon{width:48px;height:48px;flex-shrink:0;background:linear-gradient(135deg,var(--red),var(--red-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.info-card h4{font-weight:700;font-size:.9rem;color:var(--charcoal);margin-bottom:.2rem}
+.info-card p{color:var(--text-mid);font-size:.85rem;font-weight:300;line-height:1.6}
+
+/* BOOKING CTA */
+.booking{background:linear-gradient(135deg,var(--red-dark),var(--red));color:var(--white);position:relative;overflow:hidden}
+.booking::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.booking-inner{text-align:center;max-width:650px;margin:0 auto;position:relative;z-index:1}
+.booking-inner h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem;color:var(--white)}
+.booking-inner h2 em{color:var(--gold);font-weight:400;font-style:italic}
+.booking-inner p{color:rgba(255,255,255,.85);font-size:1rem;font-weight:300;margin-bottom:2rem}
+.booking-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btn-white{background:var(--white);color:var(--red);font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,.15);border-color:var(--white)}
+
+/* MAP */
+.localisation{background:var(--cream-light)}
+.loc-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:768px){.loc-content{grid-template-columns:1fr}}
+.loc-info{display:flex;flex-direction:column;gap:1.5rem}
+.loc-item{display:flex;gap:1rem;align-items:flex-start}
+.loc-icon{width:44px;height:44px;flex-shrink:0;background:var(--red);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.loc-item h4{font-weight:700;font-size:.9rem;color:var(--charcoal);margin-bottom:.2rem}
+.loc-item p{color:var(--text-mid);font-size:.85rem;font-weight:300;line-height:1.6}
+.loc-item a{color:var(--red);font-weight:600}
+.loc-map{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow-lg);border:3px solid var(--white)}
+.loc-map iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+.footer{background:var(--charcoal);color:var(--cream);text-align:center;padding:2.5rem 1.5rem}
+.footer-brand{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);margin-bottom:.5rem}
+.footer p{color:var(--text-light);font-size:.78rem;font-weight:300}
+.footer a{color:var(--gold)}
+
+/* FLOATING BTN */
+.float-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:58px;height:58px;border-radius:50%;background:#25D366;color:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:.3s;border:none;cursor:pointer;font-size:1.5rem}
+.float-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+
+/* ANIMATIONS */
+@media(prefers-reduced-motion:no-preference){
+  .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .fade-up.visible{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">La Tavola Rossa</a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links">
+    <a href="#carte">La Carte</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#horaires">Horaires</a>
+    <a href="#localisation">Accès</a>
+    <a href="#reservation" class="nav-cta">Réserver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&h=1000&fit=crop" alt="Restaurant italien ambiance chaleureuse" loading="eager"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Pizzeria & Trattoria — Paris 11ème</div>
+    <h1>L'Italie<br>au cœur de <em>Paris</em></h1>
+    <p>Pizzas cuites au feu de bois, pâtes fraîches maison et recettes familiales napolitaines. Un voyage gustatif authentique depuis 2012.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn btn-red">🍕 Réserver une table</a>
+      <a href="#carte" class="btn btn-outline-light">📖 Voir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-img fade-up">
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&h=500&fit=crop" alt="Pizza au feu de bois" loading="lazy">
+      </div>
+      <div class="intro-text fade-up">
+        <span class="section-label">Notre histoire</span>
+        <h2>Une passion <em>familiale</em></h2>
+        <p>Fondée par Marco et Sofia Ferretti, La Tavola Rossa perpétue les recettes de la famille depuis trois générations. Notre pâte à pizza est pétrie chaque matin, notre mozzarella arrive directement de Campanie, et nos sauces mijotent avec des tomates San Marzano.</p>
+        <p>Chez nous, chaque plat raconte une histoire — celle du soleil de Naples, de la convivialité italienne et de l'amour du bien-manger.</p>
+        <div class="intro-badge">🔥 Four à bois traditionnel à 450°C</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU / CARTE -->
+<section class="menu-section" id="carte">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">La Carte</span>
+      <h2>Nos <em>spécialités</em></h2>
+      <p>Des produits frais, des recettes authentiques et beaucoup d'amour. Buon appetito !</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-tab="entrees">🥗 Entrées</button>
+      <button class="menu-tab" data-tab="pizzas">🍕 Pizzas</button>
+      <button class="menu-tab" data-tab="pates">🍝 Pâtes</button>
+      <button class="menu-tab" data-tab="desserts">🍰 Desserts</button>
+    </div>
+
+    <div class="menu-category active" id="entrees">
+      <div class="menu-grid">
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Bruschetta Classica</h4><p>Tomates fraîches, basilic, ail, huile d'olive vierge</p></div><span class="menu-price">8 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Burrata Pugliese <span class="menu-popular">★ Populaire</span></h4><p>Burrata crémeuse, tomates cerises, pesto frais, roquette</p></div><span class="menu-price">14 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Antipasto Misto</h4><p>Charcuterie italienne, fromages affinés, olives, grissini</p></div><span class="menu-price">16 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Carpaccio di Manzo</h4><p>Fines tranches de bœuf, roquette, parmesan, câpres</p></div><span class="menu-price">15 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Minestrone della Nonna</h4><p>Soupe de légumes de saison, haricots blancs, pesto</p></div><span class="menu-price">9 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Salade Caprese</h4><p>Mozzarella di Bufala, tomates cœur de bœuf, basilic frais</p></div><span class="menu-price">12 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-category" id="pizzas">
+      <div class="menu-grid">
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Margherita</h4><p>Sauce tomate San Marzano, mozzarella fior di latte, basilic</p></div><span class="menu-price">12 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Regina <span class="menu-popular">★ Populaire</span></h4><p>Tomate, mozzarella, jambon cuit, champignons frais, olives</p></div><span class="menu-price">14 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Diavola</h4><p>Tomate, mozzarella, salami piquant, piments calabrais</p></div><span class="menu-price">14 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Quattro Formaggi</h4><p>Mozzarella, gorgonzola, parmesan, taleggio, miel</p></div><span class="menu-price">15 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Tartufo <span class="menu-popular">★ Chef</span></h4><p>Crème de truffe, mozzarella, champignons, roquette, parmesan</p></div><span class="menu-price">18 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Calzone Napoli</h4><p>Ricotta, mozzarella, jambon, tomate, œuf</p></div><span class="menu-price">15 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Parma</h4><p>Mozzarella, jambon de Parme 24 mois, roquette, parmesan</p></div><span class="menu-price">16 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Vegetariana</h4><p>Tomate, mozzarella, aubergines grillées, courgettes, poivrons</p></div><span class="menu-price">13 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-category" id="pates">
+      <div class="menu-grid">
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Spaghetti Carbonara <span class="menu-popular">★ Populaire</span></h4><p>Guanciale croustillant, jaune d'œuf, pecorino, poivre noir</p></div><span class="menu-price">15 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Tagliatelle al Ragù</h4><p>Pâtes fraîches, bolognaise mijotée 6h, parmesan</p></div><span class="menu-price">16 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Penne all'Arrabbiata</h4><p>Sauce tomate épicée, ail, piments, persil frais</p></div><span class="menu-price">13 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Risotto ai Funghi Porcini</h4><p>Riz carnaroli, cèpes, beurre, parmesan 36 mois</p></div><span class="menu-price">17 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Gnocchi alla Sorrentina</h4><p>Gnocchi maison, sauce tomate, mozzarella gratinée, basilic</p></div><span class="menu-price">14 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Linguine allo Scoglio</h4><p>Fruits de mer, tomates cerises, vin blanc, persil</p></div><span class="menu-price">19 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-category" id="desserts">
+      <div class="menu-grid">
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Tiramisù della Casa <span class="menu-popular">★ Populaire</span></h4><p>Recette de Sofia, mascarpone, café, cacao amer</p></div><span class="menu-price">9 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Panna Cotta</h4><p>Crème vanillée, coulis de fruits rouges</p></div><span class="menu-price">8 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Cannoli Siciliani</h4><p>Pâte croustillante, ricotta, pistaches, pépites de chocolat</p></div><span class="menu-price">9 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Affogato al Caffè</h4><p>Glace vanille artisanale, double expresso, amaretti</p></div><span class="menu-price">7 €</span></div>
+        <div class="menu-item fade-up"><div class="menu-item-info"><h4>Fondant al Cioccolato</h4><p>Cœur coulant chocolat noir 70%, glace vanille</p></div><span class="menu-price">10 €</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie" id="galerie">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Galerie</span>
+      <h2>Ambiance & <em>saveurs</em></h2>
+      <p>Découvrez notre restaurant, nos plats et l'atmosphère chaleureuse de La Tavola Rossa.</p>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=500&fit=crop" alt="Pizza margherita" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&h=500&fit=crop" alt="Pâtes fraîches" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=500&fit=crop" alt="Intérieur restaurant" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=500&h=500&fit=crop" alt="Four à bois" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&h=500&fit=crop" alt="Tiramisu" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&h=500&fit=crop" alt="Dressage de plat" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="avis" id="avis">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Avis clients</span>
+      <h2>Ils en <em>parlent</em></h2>
+      <p>4.8/5 sur Google — Plus de 387 avis vérifiés</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Les meilleures pizzas de Paris, sans exagérer ! La pâte est légère, croustillante et les ingrédients sont d'une fraîcheur incroyable. L'ambiance est conviviale, on se croirait vraiment en Italie. La pizza Tartufo est une tuerie absolue. »</p>
+        <div class="avis-author">
+          <img class="avis-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Thomas Durand">
+          <div><div class="avis-name">Thomas Durand</div><div class="avis-date">Il y a 5 jours — Google</div></div>
+        </div>
+      </div>
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Un vrai coup de cœur ! La carbonara est authentique (avec du guanciale, pas de la crème !). Le tiramisu de Sofia est le meilleur que j'ai jamais goûté. Le service est attentionné et Marco passe toujours dire un petit mot. On y retourne chaque semaine. »</p>
+        <div class="avis-author">
+          <img class="avis-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Camille Moreau">
+          <div><div class="avis-name">Camille Moreau</div><div class="avis-date">Il y a 2 semaines — Google</div></div>
+        </div>
+      </div>
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Cadre magnifique avec les murs en briques et la terrasse. Parfait pour un dîner en amoureux ou entre amis. La burrata était incroyable et les pâtes fraîches sont faites sous vos yeux. Rapport qualité-prix imbattable pour le quartier. »</p>
+        <div class="avis-author">
+          <img class="avis-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Julien Petit">
+          <div><div class="avis-name">Julien Petit</div><div class="avis-date">Il y a 1 mois — Google</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section class="horaires" id="horaires">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Informations pratiques</span>
+      <h2>Horaires & <em>infos</em></h2>
+    </div>
+    <div class="horaires-content">
+      <div class="horaires-card fade-up">
+        <h3>🕐 Horaires d'ouverture</h3>
+        <div class="horaire-row"><span class="horaire-day">Lundi</span><span class="horaire-time horaire-closed">Fermé</span></div>
+        <div class="horaire-row"><span class="horaire-day">Mardi</span><span class="horaire-time">12h–14h30 / 19h–23h</span></div>
+        <div class="horaire-row"><span class="horaire-day">Mercredi</span><span class="horaire-time">12h–14h30 / 19h–23h</span></div>
+        <div class="horaire-row"><span class="horaire-day">Jeudi</span><span class="horaire-time">12h–14h30 / 19h–23h</span></div>
+        <div class="horaire-row"><span class="horaire-day">Vendredi</span><span class="horaire-time">12h–14h30 / 19h–23h30</span></div>
+        <div class="horaire-row"><span class="horaire-day">Samedi</span><span class="horaire-time">12h–15h / 19h–23h30</span></div>
+        <div class="horaire-row"><span class="horaire-day">Dimanche</span><span class="horaire-time">12h–15h (brunch)</span></div>
+      </div>
+      <div class="horaires-info fade-up">
+        <div class="info-card">
+          <div class="info-icon">🍕</div>
+          <div><h4>À emporter & Livraison</h4><p>Commandez par téléphone ou WhatsApp. Livraison gratuite dans un rayon de 2 km.</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🎉</div>
+          <div><h4>Privatisation & Événements</h4><p>Anniversaires, repas d'entreprise, fêtes de famille. Salle privatisable jusqu'à 40 personnes.</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌿</div>
+          <div><h4>Options végétariennes</h4><p>Large choix de pizzas, pâtes et entrées végétariennes. Options vegan sur demande.</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🍷</div>
+          <div><h4>Carte des vins</h4><p>Sélection de vins italiens : Chianti, Barolo, Prosecco, Limoncello maison.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking" id="reservation">
+  <div class="container">
+    <div class="booking-inner">
+      <span class="section-label" style="color:var(--gold)">Réservation</span>
+      <h2>Réservez votre <em>table</em></h2>
+      <p>Pour un déjeuner entre amis ou un dîner en tête-à-tête, réservez en un clic. Nous vous accueillons avec le sourire !</p>
+      <div class="booking-btns">
+        <a href="tel:+33143572890" class="btn btn-white">📞 01 43 57 28 90</a>
+        <a href="https://wa.me/33143572890?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20table%20%C3%A0%20La%20Tavola%20Rossa." class="btn btn-outline-white">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALISATION -->
+<section class="localisation" id="localisation">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Nous trouver</span>
+      <h2>Venez nous <em>découvrir</em></h2>
+    </div>
+    <div class="loc-content">
+      <div class="loc-info fade-up">
+        <div class="loc-item">
+          <div class="loc-icon">📍</div>
+          <div><h4>Adresse</h4><p>42 Rue de la Roquette<br>75011 Paris</p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">📞</div>
+          <div><h4>Téléphone</h4><p><a href="tel:+33143572890">01 43 57 28 90</a></p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">🚇</div>
+          <div><h4>Métro</h4><p>Bastille (L1, L5, L8)<br>Voltaire (L9)</p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">🅿️</div>
+          <div><h4>Parking</h4><p>Parking Bastille à 200m<br>Stationnement vélo devant le restaurant</p></div>
+        </div>
+      </div>
+      <div class="loc-map fade-up">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4!2d2.3720!3d48.8534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fc3e75ec45%3A0x5bacbf88f1d4e621!2sRue%20de%20la%20Roquette%2C%2075011%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte La Tavola Rossa Paris 11"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">La Tavola Rossa 🍕</div>
+  <p>© 2025 La Tavola Rossa — 42 Rue de la Roquette, 75011 Paris — SIRET 123 456 789 00012</p>
+  <p style="margin-top:.4rem">Site réalisé par <a href="#">NexIA</a></p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/33143572890?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20table." class="float-btn" aria-label="WhatsApp" title="Réserver sur WhatsApp">💬</a>
+
+<script>
+// Nav scroll
+const nav=document.querySelector('.nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+
+// Menu tabs
+document.querySelectorAll('.menu-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.menu-category').forEach(c=>c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+    // Re-observe fade-ups in newly visible category
+    document.querySelectorAll('#'+tab.dataset.tab+' .fade-up:not(.visible)').forEach(el=>obs.observe(el));
+  });
+});
+
+// Fade-up
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Close mobile menu
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>

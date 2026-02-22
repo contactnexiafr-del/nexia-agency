@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Élara | Salon de Coiffure Paris 8 — Coupe, Coloration, Balayage</title>
+<meta name="description" content="Salon de coiffure haut de gamme à Paris 8ème. Coupe, coloration, balayage, lissage, soins capillaires. Équipe experte, produits premium. Prenez rendez-vous en ligne.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://maison-elara.fr">
+<meta property="og:title" content="Maison Élara — Salon de Coiffure Paris 8ème">
+<meta property="og:description" content="L'excellence capillaire au cœur de Paris. Coupe, coloration, balayage et soins sur-mesure.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Maison Élara",
+  "telephone": "+33142659800",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "28 Rue du Faubourg Saint-Honoré",
+    "addressLocality": "Paris",
+    "postalCode": "75008",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "url": "https://maison-elara.fr",
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "19:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00"}
+  ],
+  "priceRange": "€€€",
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "214"}
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c9a84c;--gold-light:#e0c97f;--gold-dark:#a6872e;
+  --black:#0a0a0a;--black-soft:#1a1a1a;--black-card:#141414;
+  --white:#ffffff;--cream:#faf6ee;--cream-dark:#f0e8d6;
+  --gray-warm:#8a8278;--gray-light:#b5afa6;--gray-dark:#3d3a36;
+  --radius:8px;
+  --shadow:0 2px 16px rgba(0,0,0,.15);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.25);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Montserrat',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);color:var(--white);line-height:1.6;background:var(--black);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .4s}
+.nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(12px);padding:.7rem 2rem;border-bottom:1px solid rgba(201,168,76,.15)}
+.nav-brand{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);letter-spacing:.04em}
+.nav-brand span{font-weight:400;font-style:italic;color:var(--white);opacity:.7;font-size:.85em}
+.nav-links{display:flex;gap:.25rem;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);padding:.5rem .85rem;border-radius:6px;font-size:.8rem;font-weight:500;transition:.25s;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold)!important;color:var(--black)!important;padding:.55rem 1.25rem!important;border-radius:6px;font-weight:600!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.menu-toggle{display:none;background:none;border:none;color:var(--gold);cursor:pointer;padding:.5rem}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--black);flex-direction:column;padding:1.5rem;gap:.25rem;border-bottom:1px solid var(--gold)}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .nav{padding:.8rem 1.25rem}
+}
+
+/* HERO */
+.hero-bg-img{position:absolute;inset:0;z-index:0}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;opacity:.2}
+.service-img{width:100%;height:160px;object-fit:cover;border-radius:var(--radius);margin-bottom:1rem}
+.galerie-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.avis-card .avis-img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--black);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(201,168,76,.08) 0%,transparent 40%,transparent 60%,rgba(201,168,76,.05) 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(201,168,76,.06) 0%,transparent 60%)}
+.hero-deco{position:absolute;width:500px;height:500px;border:1px solid rgba(201,168,76,.08);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-deco::before{content:'';position:absolute;width:650px;height:650px;border:1px solid rgba(201,168,76,.04);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-inner{text-align:center;position:relative;z-index:1;padding:6rem 1.5rem 4rem;max-width:800px}
+.hero-tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.3);padding:.5rem 1.5rem;margin-bottom:2rem;position:relative}
+.hero-tag::before,.hero-tag::after{content:'✦';position:absolute;top:50%;transform:translateY(-50%);color:var(--gold);opacity:.5}
+.hero-tag::before{left:-.8rem}
+.hero-tag::after{right:-.8rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero p{font-size:clamp(.95rem,2vw,1.15rem);color:var(--gray-light);margin-bottom:2.5rem;max-width:520px;margin-inline:auto;font-weight:300;line-height:1.8}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:6px;font-weight:600;font-size:.85rem;transition:.3s;cursor:pointer;border:none;font-family:var(--font-body);letter-spacing:.06em;text-transform:uppercase}
+.btn-gold{background:var(--gold);color:var(--black);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gold);opacity:.5;animation:float 2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* DIVIDER */
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);max-width:200px;margin:0 auto}
+
+/* SECTIONS */
+section{padding:6rem 1.5rem}
+.section-header{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.section-header h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:.75rem;letter-spacing:-.01em}
+.section-header h2 em{font-style:italic;color:var(--gold);font-weight:400}
+.section-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.section-header p{color:var(--gray-warm);font-size:1rem;font-weight:300}
+.container{max-width:1100px;margin:0 auto}
+
+/* SERVICES */
+.services{background:var(--black-soft)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.service-card{background:var(--black-card);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;transition:.4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.4s}
+.service-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-4px)}
+.service-card:hover::before{opacity:1}
+.service-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.service-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:.5rem;color:var(--white)}
+.service-card p{color:var(--gray-warm);font-size:.85rem;line-height:1.6;font-weight:300}
+
+/* TARIFS */
+.tarifs{background:var(--black)}
+.tarifs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.tarif-group{background:var(--black-card);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:2rem;overflow:hidden;position:relative}
+.tarif-group h3{font-family:var(--font-display);font-size:1.2rem;color:var(--gold);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid rgba(201,168,76,.15)}
+.tarif-item{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px dotted rgba(255,255,255,.07)}
+.tarif-item:last-child{border:none}
+.tarif-name{font-size:.9rem;font-weight:400;color:var(--gray-light)}
+.tarif-price{font-family:var(--font-display);font-size:1rem;color:var(--gold);font-weight:600;white-space:nowrap}
+.tarif-note{font-size:.75rem;color:var(--gray-warm);margin-top:1rem;font-style:italic}
+
+/* GALERIE */
+.galerie{background:var(--black-soft)}
+.galerie-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.galerie-item{aspect-ratio:4/5;background:var(--black-card);border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid rgba(201,168,76,.08);display:flex;align-items:center;justify-content:center}
+.galerie-item .placeholder{color:var(--gray-warm);font-size:.8rem;text-align:center;font-weight:300}
+.galerie-item .placeholder span{display:block;font-size:2.5rem;margin-bottom:.5rem;opacity:.3}
+.galerie-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.6) 0%,transparent 50%);pointer-events:none}
+
+/* AVIS */
+.avis{background:var(--black)}
+.avis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.avis-card{background:var(--black-card);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:2rem;position:relative}
+.avis-card::before{content:'❝';position:absolute;top:1rem;right:1.5rem;font-size:3rem;color:var(--gold);opacity:.15;font-family:serif;line-height:1}
+.avis-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:1rem}
+.avis-text{color:var(--gray-light);font-size:.92rem;font-style:italic;line-height:1.8;margin-bottom:1.25rem;font-weight:300}
+.avis-author{display:flex;align-items:center;gap:.75rem}
+.avis-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
+.avis-name{font-weight:600;font-size:.85rem;color:var(--white)}
+.avis-date{font-size:.75rem;color:var(--gray-warm)}
+
+/* CTA BOOKING */
+.booking{background:linear-gradient(135deg,var(--black-soft) 0%,rgba(201,168,76,.08) 100%);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
+.booking-inner{text-align:center;max-width:600px;margin:0 auto}
+.booking-inner h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1rem}
+.booking-inner h2 em{color:var(--gold);font-weight:400;font-style:italic}
+.booking-inner p{color:var(--gray-warm);font-size:1rem;font-weight:300;margin-bottom:2rem}
+.booking-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+/* LOCALISATION */
+.localisation{background:var(--black-soft)}
+.loc-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:768px){.loc-content{grid-template-columns:1fr}}
+.loc-info{display:flex;flex-direction:column;gap:1.5rem}
+.loc-item{display:flex;gap:1rem;align-items:flex-start}
+.loc-item-icon{width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.loc-item h4{font-weight:600;font-size:.9rem;color:var(--white);margin-bottom:.2rem}
+.loc-item p{color:var(--gray-warm);font-size:.85rem;font-weight:300;line-height:1.6}
+.loc-map{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(201,168,76,.1)}
+.loc-map iframe{width:100%;height:100%;border:0;filter:grayscale(.8) contrast(1.1) brightness(.7);transition:filter .4s}
+.loc-map:hover iframe{filter:grayscale(.3) contrast(1) brightness(.8)}
+
+/* FOOTER */
+.footer{background:var(--black);border-top:1px solid rgba(201,168,76,.1);text-align:center;padding:2.5rem 1.5rem}
+.footer-brand{font-family:var(--font-display);font-size:1.3rem;color:var(--gold);margin-bottom:.5rem}
+.footer p{color:var(--gray-warm);font-size:.78rem;font-weight:300}
+.footer a{color:var(--gold)}
+
+/* FLOATING */
+.float-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--black);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,168,76,.4);transition:.3s;border:none;cursor:pointer;font-size:1.4rem}
+.float-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(201,168,76,.5)}
+
+/* ANIMATIONS */
+@media(prefers-reduced-motion:no-preference){
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .fade-up.visible{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">Maison Élara</a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#localisation">Accès</a>
+    <a href="#rdv" class="nav-cta">Réserver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-img"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&h=900&fit=crop" alt="Salon de coiffure élégant" loading="eager"></div>
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Salon de coiffure — Paris 8ème</div>
+    <h1>L'art de la<br><em>beauté capillaire</em></h1>
+    <p>Un écrin d'élégance au cœur de Paris. Nos experts subliment votre chevelure avec des techniques sur-mesure et des produits d'exception.</p>
+    <div class="hero-btns">
+      <a href="#rdv" class="btn btn-gold">Prendre rendez-vous</a>
+      <a href="#services" class="btn btn-outline">Découvrir nos soins</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Nos expertises</span>
+      <h2>Des soins <em>d'exception</em></h2>
+      <p>Chaque prestation est pensée comme un moment unique, adapté à votre style et à la nature de vos cheveux.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <img class="service-img" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=250&fit=crop" alt="Coupe et coiffage" loading="lazy">
+        <span class="service-icon">✂️</span>
+        <h3>Coupe & Coiffage</h3>
+        <p>Coupe personnalisée, brushing, mise en forme. Un diagnostic capillaire précis pour un résultat qui vous ressemble.</p>
+      </div>
+      <div class="service-card fade-up">
+        <img class="service-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=250&fit=crop" alt="Coloration" loading="lazy">
+        <span class="service-icon">🎨</span>
+        <h3>Coloration</h3>
+        <p>Couleur sur-mesure, couverture de blancs, ton sur ton. Formules douces respectant la fibre capillaire.</p>
+      </div>
+      <div class="service-card fade-up">
+        <img class="service-img" src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=400&h=250&fit=crop" alt="Balayage et mèches" loading="lazy">
+        <span class="service-icon">☀️</span>
+        <h3>Balayage & Mèches</h3>
+        <p>Balayage naturel, effet soleil, ombré hair. Des reflets lumineux pour un éclat incomparable.</p>
+      </div>
+      <div class="service-card fade-up">
+        <img class="service-img" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=250&fit=crop" alt="Lissage" loading="lazy">
+        <span class="service-icon">✨</span>
+        <h3>Lissage</h3>
+        <p>Lissage brésilien, japonais ou tanin. Cheveux disciplinés et soyeux jusqu'à 4 mois, sans abîmer.</p>
+      </div>
+      <div class="service-card fade-up">
+        <img class="service-img" src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400&h=250&fit=crop" alt="Soins capillaires" loading="lazy">
+        <span class="service-icon">💎</span>
+        <h3>Soins Capillaires</h3>
+        <p>Soins profonds, botox capillaire, kératine. Rituel de réparation et d'hydratation pour cheveux sublimes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="tarifs" id="tarifs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Nos tarifs</span>
+      <h2>Grille <em>tarifaire</em></h2>
+      <p>Des prestations premium à des prix justes. Consultation personnalisée offerte sur votre première visite.</p>
+    </div>
+    <div class="tarifs-grid">
+      <div class="tarif-group fade-up">
+        <h3>✂️ Coupe & Coiffage</h3>
+        <div class="tarif-item"><span class="tarif-name">Coupe femme + brushing</span><span class="tarif-price">à partir de 65 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Coupe homme</span><span class="tarif-price">à partir de 35 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Brushing seul</span><span class="tarif-price">à partir de 35 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Coiffure événement / Chignon</span><span class="tarif-price">à partir de 80 €</span></div>
+        <p class="tarif-note">Supplément cheveux longs : +10 à +20 €</p>
+      </div>
+      <div class="tarif-group fade-up">
+        <h3>🎨 Couleur & Technique</h3>
+        <div class="tarif-item"><span class="tarif-name">Coloration complète</span><span class="tarif-price">à partir de 70 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Balayage / Mèches</span><span class="tarif-price">à partir de 90 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Ombré hair</span><span class="tarif-price">à partir de 110 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Patine / Gloss</span><span class="tarif-price">à partir de 40 €</span></div>
+      </div>
+      <div class="tarif-group fade-up">
+        <h3>✨ Lissage & Soins</h3>
+        <div class="tarif-item"><span class="tarif-name">Lissage brésilien</span><span class="tarif-price">à partir de 200 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Lissage tanin</span><span class="tarif-price">à partir de 180 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Soin profond kératine</span><span class="tarif-price">à partir de 50 €</span></div>
+        <div class="tarif-item"><span class="tarif-name">Botox capillaire</span><span class="tarif-price">à partir de 60 €</span></div>
+        <p class="tarif-note">Tarif sur devis selon longueur et état du cheveu</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie" id="galerie">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Portfolio</span>
+      <h2>Notre <em>galerie</em></h2>
+      <p>Quelques-unes de nos réalisations. Chaque coiffure est une œuvre unique.</p>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=625&fit=crop" alt="Balayage californien" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=625&fit=crop" alt="Coloration cuivrée" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=500&h=625&fit=crop" alt="Lissage brésilien" loading="lazy"></div>
+      <div class="galerie-item fade-up"><img src="https://images.unsplash.com/photo-1595959183082-7b570b7e1e2b?w=500&h=625&fit=crop" alt="Coupe structurée" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="avis" id="avis">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Témoignages</span>
+      <h2>Ce qu'elles <em>en disent</em></h2>
+      <p>4.9/5 sur Google — Plus de 214 avis vérifiés</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Un salon comme on en rêve. L'équipe a su écouter exactement ce que je voulais et le résultat est au-delà de mes espérances. Mon balayage est absolument sublime, naturel et lumineux. J'y retourne les yeux fermés ! »</p>
+        <div class="avis-author">
+          <img class="avis-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Charlotte Lefèvre">
+          <div><div class="avis-name">Charlotte Lefèvre</div><div class="avis-date">Il y a 1 semaine — Google</div></div>
+        </div>
+      </div>
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Enfin un salon qui prend le temps ! Le diagnostic capillaire m'a bluffée. Après des années de colorations ratées ailleurs, j'ai enfin trouvé MA couleur. Le soin kératine en plus a transformé mes cheveux. Merci infiniment. »</p>
+        <div class="avis-author">
+          <img class="avis-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Inès Benali">
+          <div><div class="avis-name">Inès Benali</div><div class="avis-date">Il y a 3 semaines — Google</div></div>
+        </div>
+      </div>
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« J'ai fait un lissage brésilien et c'est une révolution. Mes cheveux sont doux, brillants et faciles à coiffer. L'ambiance du salon est chic sans être intimidante. On s'y sent accueillie comme une reine. »</p>
+        <div class="avis-author">
+          <img class="avis-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Marie Rousseau">
+          <div><div class="avis-name">Marie Rousseau</div><div class="avis-date">Il y a 2 mois — Google</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking" id="rdv">
+  <div class="container">
+    <div class="booking-inner">
+      <span class="section-label">Rendez-vous</span>
+      <h2>Prête à être <em>sublimée</em> ?</h2>
+      <p>Réservez votre créneau en ligne ou appelez-nous directement. Première consultation offerte pour les nouvelles clientes.</p>
+      <div class="booking-btns">
+        <a href="tel:+33142659800" class="btn btn-gold">📞 01 42 65 98 00</a>
+        <a href="https://wa.me/33142659800?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous." class="btn btn-outline">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALISATION -->
+<section class="localisation" id="localisation">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Nous trouver</span>
+      <h2>Au cœur de <em>Paris</em></h2>
+    </div>
+    <div class="loc-content">
+      <div class="loc-info">
+        <div class="loc-item">
+          <div class="loc-item-icon">📍</div>
+          <div><h4>Adresse</h4><p>28 Rue du Faubourg Saint-Honoré<br>75008 Paris</p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-item-icon">🕐</div>
+          <div><h4>Horaires</h4><p>Mar — Ven : 10h – 19h30<br>Samedi : 9h – 18h<br>Dim — Lun : Fermé</p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-item-icon">📞</div>
+          <div><h4>Téléphone</h4><p><a href="tel:+33142659800" style="color:var(--gold)">01 42 65 98 00</a></p></div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-item-icon">🚇</div>
+          <div><h4>Métro</h4><p>Madeleine (L8, L12, L14)<br>Concorde (L1, L8, L12)</p></div>
+        </div>
+      </div>
+      <div class="loc-map fade-up">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2!2d2.3183!3d48.8698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e38a55d3e05%3A0x9b5bfe77ef53d529!2sRue%20du%20Faubourg%20Saint-Honor%C3%A9%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Maison Élara Paris 8"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Maison Élara</div>
+  <p>© 2025 Maison Élara — 28 Rue du Faubourg Saint-Honoré, 75008 Paris — SIRET 987 654 321 00015</p>
+  <p style="margin-top:.4rem">Site réalisé par <a href="#">NexIA</a></p>
+</footer>
+
+<!-- FLOATING -->
+<a href="tel:+33142659800" class="float-btn" aria-label="Appeler" title="Réserver par téléphone">📞</a>
+
+<script>
+// Nav scroll
+const nav=document.querySelector('.nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+
+// Fade-up
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Close mobile menu
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>

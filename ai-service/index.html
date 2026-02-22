@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexIA — Votre Agent IA Installé en 24h</title>
+    <meta name="description" content="On installe et configure votre assistant IA personnel pour votre business. Automatisez prospection, contenu, support client. Résultat en 24h.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0f172a; background: #fff; }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #6366f1, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+        }
+        .cta-secondary {
+            display: inline-block;
+            color: #94a3b8;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+        .cta-secondary:hover { color: white; }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: #6366f1; }
+        .stat-label { font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; }
+
+        /* Problem Section */
+        .problem {
+            padding: 6rem 2rem;
+            background: #f8fafc;
+            text-align: center;
+        }
+        .problem h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .problem .subtitle {
+            font-size: 1.15rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pain-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+        }
+        .pain-card .emoji { font-size: 2rem; margin-bottom: 1rem; }
+        .pain-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .pain-card p { color: #64748b; font-size: 0.95rem; line-height: 1.5; }
+
+        /* How it works */
+        .how {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        .how h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .step {
+            padding: 2rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 1px solid #e2e8f0;
+        }
+        .step-number {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem;
+        }
+        .step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .step p { color: #64748b; font-size: 0.95rem; }
+
+        /* Pricing */
+        .pricing {
+            padding: 6rem 2rem;
+            background: #f8fafc;
+            text-align: center;
+        }
+        .pricing h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .pricing .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .price-card.popular {
+            border-color: #6366f1;
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.15);
+        }
+        .price-card.popular::before {
+            content: '⭐ PLUS POPULAIRE';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .price-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .price-card .description { color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .price-card .price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+        }
+        .price-card .price span { font-size: 1rem; color: #64748b; font-weight: 400; }
+        .price-card .once { color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .price-card ul { list-style: none; padding: 0; margin-bottom: 2rem; }
+        .price-card li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .price-card li::before { content: '✅'; font-size: 0.85rem; }
+        .price-card .card-cta {
+            display: block;
+            text-align: center;
+            padding: 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .price-card .card-cta.primary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+        }
+        .price-card .card-cta.secondary {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        /* Use Cases */
+        .usecases {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        .usecases h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; }
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .usecase {
+            padding: 2rem;
+            border-radius: 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .usecase .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .usecase h3 { font-weight: 700; margin-bottom: 0.5rem; }
+        .usecase p { color: #64748b; font-size: 0.9rem; line-height: 1.5; }
+
+        /* FAQ */
+        .faq {
+            padding: 6rem 2rem;
+            background: #f8fafc;
+        }
+        .faq h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; text-align: center; }
+        .faq-list { max-width: 700px; margin: 0 auto; }
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .faq-q { font-weight: 700; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; }
+        .faq-a { color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-top: 1rem; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.3s; }
+
+        /* CTA Final */
+        .final-cta {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+        .final-cta h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .final-cta p { color: #94a3b8; font-size: 1.15rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            background: #0f172a;
+        }
+        footer a { color: #6366f1; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero-stats { gap: 1.5rem; }
+            .cta-secondary { display: block; margin: 1rem auto 0; }
+            .price-card.popular { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge">🤖 +18 000% de demande en 6 mois</div>
+        <h1>Votre <span class="gradient">Agent IA</span><br>installé en 24h</h1>
+        <p>On installe, configure et personnalise un assistant IA pour votre business. Prospection, contenu, support client — tout automatisé.</p>
+        <div>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé%20par%20l'installation%20d'un%20agent%20IA%20pour%20mon%20business." class="cta-button">Commander maintenant →</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Livraison</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Done-for-you</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Votre IA travaille</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem -->
+<section class="problem">
+    <h2>Le problème que tout le monde a</h2>
+    <p class="subtitle">Vous savez que l'IA peut transformer votre business. Mais...</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <div class="emoji">😫</div>
+            <h3>C'est trop technique</h3>
+            <p>API, tokens, prompts, déploiement... Vous passez des heures sur YouTube sans résultat.</p>
+        </div>
+        <div class="pain-card">
+            <div class="emoji">⏰</div>
+            <h3>Vous perdez du temps</h3>
+            <p>Pendant que vous essayez de comprendre l'IA, vos concurrents l'utilisent déjà pour gagner des clients.</p>
+        </div>
+        <div class="pain-card">
+            <div class="emoji">💸</div>
+            <h3>Les agences sont trop chères</h3>
+            <p>5 000-20 000€ pour une "transformation IA" ? Il y a mieux à faire avec cet argent.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section class="how">
+    <h2>Comment ça marche</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Vous nous décrivez votre besoin</h3>
+            <p>Un appel ou message de 5 min. Quel est votre business ? Qu'est-ce que vous voulez automatiser ?</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>On installe tout en 24h</h3>
+            <p>Notre expert IA configure votre agent personnalisé. Vous n'avez rien à faire.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Votre IA commence à bosser</h3>
+            <p>Prospection, réponses clients, contenu... votre agent travaille 24/7 pendant que vous dormez.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Use Cases -->
+<section class="usecases">
+    <h2>Ce que votre agent IA peut faire</h2>
+    <div class="usecase-grid">
+        <div class="usecase">
+            <div class="icon">🎯</div>
+            <h3>Prospection automatique</h3>
+            <p>Il trouve vos clients idéaux, rédige les emails personnalisés, et relance automatiquement.</p>
+        </div>
+        <div class="usecase">
+            <div class="icon">💬</div>
+            <h3>Support client 24/7</h3>
+            <p>Répond aux questions de vos clients instantanément, sur WhatsApp, email ou votre site.</p>
+        </div>
+        <div class="usecase">
+            <div class="icon">📱</div>
+            <h3>Contenu automatisé</h3>
+            <p>Posts LinkedIn, Instagram, articles de blog — générés chaque semaine dans votre style.</p>
+        </div>
+        <div class="usecase">
+            <div class="icon">📊</div>
+            <h3>Assistant personnel</h3>
+            <p>Gère vos emails, planifie vos tâches, fait des recherches, résume vos documents.</p>
+        </div>
+        <div class="usecase">
+            <div class="icon">🏪</div>
+            <h3>E-commerce</h3>
+            <p>Fiches produit SEO, réponses aux avis, analyse de concurrence, optimisation des prix.</p>
+        </div>
+        <div class="usecase">
+            <div class="icon">📋</div>
+            <h3>Administration</h3>
+            <p>Factures, devis, relances impayés, rapports — tout ce qui vous prend du temps.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing">
+    <h2>Nos offres</h2>
+    <p class="subtitle">Setup rapide + abonnement mensuel. Votre IA évolue avec vous.</p>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>⚡ Starter</h3>
+            <p class="description">Parfait pour débuter avec l'IA</p>
+            <div class="price">97€ <span>setup</span></div>
+            <p class="once">puis <strong style="color:#6366f1;font-size:1.3rem">47€</strong>/mois</p>
+            <ul>
+                <li>1 agent IA configuré</li>
+                <li>1 automatisation au choix</li>
+                <li>Installation en 24h</li>
+                <li>Guide d'utilisation</li>
+                <li>Support inclus</li>
+                <li>1 mise à jour par mois</li>
+            </ul>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé%20par%20le%20pack%20Starter%20(97€%20%2B%2047€/mois)." class="card-cta secondary">Commander →</a>
+        </div>
+        <div class="price-card popular">
+            <h3>🚀 Business</h3>
+            <p class="description">L'IA qui fait vraiment le travail</p>
+            <div class="price">197€ <span>setup</span></div>
+            <p class="once">puis <strong style="color:#6366f1;font-size:1.3rem">97€</strong>/mois</p>
+            <ul>
+                <li>Agent IA complet + personnalisé</li>
+                <li>3 automatisations configurées</li>
+                <li>Prospection OU contenu OU support</li>
+                <li>Installation en 24h</li>
+                <li>Formation vidéo incluse</li>
+                <li>Support prioritaire</li>
+                <li>3 mises à jour par mois</li>
+                <li>Nouvelles automatisations mensuelles</li>
+            </ul>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé%20par%20le%20pack%20Business%20(197€%20%2B%2097€/mois)." class="card-cta primary">Commander →</a>
+        </div>
+        <div class="price-card">
+            <h3>🏢 Enterprise</h3>
+            <p class="description">Transformation IA complète</p>
+            <div class="price">497€ <span>setup</span></div>
+            <p class="once">puis <strong style="color:#6366f1;font-size:1.3rem">197€</strong>/mois</p>
+            <ul>
+                <li>Agent IA sur-mesure</li>
+                <li>Automatisations illimitées</li>
+                <li>Prospection + contenu + support</li>
+                <li>Intégration outils existants</li>
+                <li>Formation équipe</li>
+                <li>Support illimité prioritaire</li>
+                <li>Mises à jour illimitées</li>
+                <li>Agent qui évolue avec votre business</li>
+            </ul>
+            <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20suis%20intéressé%20par%20le%20pack%20Enterprise%20(497€%20%2B%20197€/mois)." class="card-cta secondary">Commander →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Free Audit CTA -->
+<section style="background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:4rem 2rem;text-align:center;color:white">
+    <div style="max-width:700px;margin:0 auto">
+        <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;display:inline-block;margin-bottom:1.5rem">🎁 OFFRE LIMITÉE</span>
+        <h2 style="font-size:2rem;margin-bottom:1rem;color:white">Audit IA Gratuit de Votre Business</h2>
+        <p style="font-size:1.1rem;opacity:0.9;margin-bottom:2rem;line-height:1.6">On analyse votre activité et on vous dit exactement quelles tâches automatiser avec l'IA — et combien d'heures vous pouvez gagner par semaine. Sans engagement, 100% gratuit.</p>
+        <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20voudrais%20un%20audit%20IA%20gratuit%20de%20mon%20business." style="display:inline-block;background:white;color:#6366f1;padding:1rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.1rem;text-decoration:none;transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Demander mon audit gratuit →</a>
+        <p style="margin-top:1rem;font-size:0.85rem;opacity:0.7">⏰ Seulement 5 audits gratuits par semaine</p>
+    </div>
+</section>
+
+<!-- Fiverr Badge -->
+<section style="background:#1a1a2e;padding:2rem;text-align:center">
+    <p style="color:#9ca3af;font-size:0.95rem">🌍 Also available worldwide on <a href="https://www.fiverr.com/nexia_agency" style="color:#1dbf73;font-weight:700;text-decoration:none" target="_blank">Fiverr →</a></p>
+</section>
+
+<!-- Social Proof -->
+<section class="usecases" style="background:#f8fafc">
+    <h2>They automated their business with us</h2>
+    <div class="usecase-grid" style="max-width:900px">
+        <div class="usecase" style="border-left:4px solid #6366f1">
+            <p style="font-size:1.05rem;line-height:1.6;color:#334155">"I was spending 3 hours a day on prospecting emails. Now my AI agent does it automatically and I've doubled my leads in the first month."</p>
+            <p style="margin-top:1rem;font-weight:700;color:#0f172a">— Marketing Agency Owner</p>
+            <p style="color:#6366f1;font-size:0.85rem">⭐⭐⭐⭐⭐ Business Package</p>
+        </div>
+        <div class="usecase" style="border-left:4px solid #10b981">
+            <p style="font-size:1.05rem;line-height:1.6;color:#334155">"Setup was done in less than 24h. My AI handles customer questions on WhatsApp while I focus on growing my store. Game changer."</p>
+            <p style="margin-top:1rem;font-weight:700;color:#0f172a">— E-commerce Entrepreneur</p>
+            <p style="color:#10b981;font-size:0.85rem">⭐⭐⭐⭐⭐ Starter Package</p>
+        </div>
+        <div class="usecase" style="border-left:4px solid #f59e0b">
+            <p style="font-size:1.05rem;line-height:1.6;color:#334155">"I thought AI was only for big companies. For $197, I got an agent that creates all my social media content. Best investment I've made this year."</p>
+            <p style="margin-top:1rem;font-weight:700;color:#0f172a">— Freelance Consultant</p>
+            <p style="color:#f59e0b;font-size:0.85rem">⭐⭐⭐⭐⭐ Business Package</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-list">
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">C'est quoi exactement un "agent IA" ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">C'est un assistant virtuel intelligent qui travaille pour vous 24h/24. Comme un employé qui ne dort jamais, ne fait pas d'erreurs, et coûte 0€ par mois. Il peut prospecter, répondre à vos clients, créer du contenu, gérer votre admin...</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Je n'y connais rien en tech, c'est possible ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">C'est justement pour ça qu'on existe ! On s'occupe de TOUTE la partie technique. Vous n'avez qu'à nous dire ce que vous voulez automatiser. En 24h c'est fait et on vous montre comment l'utiliser en 10 minutes.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Pourquoi un abonnement mensuel ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">L'IA évolue vite. Chaque mois on améliore votre agent, on ajoute de nouvelles automatisations, et on s'assure que tout tourne parfaitement. C'est comme avoir un expert IA dédié à votre business. Sans engagement — vous pouvez arrêter quand vous voulez.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">En combien de temps c'est prêt ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">24 heures après votre commande. On vous contacte pour comprendre votre besoin, et le lendemain votre agent IA est opérationnel.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Et si ça ne me convient pas ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">On offre une garantie satisfait ou remboursé de 7 jours. Si votre agent IA ne fait pas ce qu'on a promis, on vous rembourse intégralement.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">C'est quoi la différence avec ChatGPT ? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">ChatGPT est un outil que VOUS devez utiliser manuellement. Notre agent IA travaille TOUT SEUL, en continu, sans que vous ayez à lever le petit doigt. C'est la différence entre avoir un marteau et avoir un ouvrier.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <h2>Prêt à automatiser votre business ?</h2>
+    <p>Pendant que vous hésitez, vos concurrents installent leur agent IA. Ne restez pas à la traîne.</p>
+    <a href="https://wa.me/33610619795?text=Bonjour%20!%20Je%20veux%20mon%20agent%20IA.%20Quand%20est-ce%20qu'on%20commence%20?" class="cta-button">Obtenir mon agent IA →</a>
+</section>
+
+<footer>
+    <p>© 2026 NexIA — Agents IA pour entrepreneurs | <a href="mailto:contact.nexia.fr@gmail.com">contact.nexia.fr@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
